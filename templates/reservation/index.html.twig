@@ -1,20 +1,72 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ReservationController!{% endblock %}
+{% block title %}Kuriosity - Réservation{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/sae301/src/Controller/ReservationController.php</code></li>
-        <li>Your template at <code>/var/www/sae301/templates/reservation/index.html.twig</code></li>
-    </ul>
-</div>
+
+
+
+
+    <section class="reservation-section">
+        <div class="reservation-content">
+            <div class="reservation-box">
+                <img src="{{ asset('images/missionk.png') }}" alt="Mission K" class="reservation-image">
+                <div class="reservation-form">
+                    <h2>Mission K</h2>
+                    <div class="date-picker">
+                        <input type="text" id="date-input" placeholder="Choisir une date" readonly>
+                        <div class="availability-slots">
+                            <!-- Les créneaux seront générés dynamiquement -->
+                        </div>
+                    </div>
+                    <button id="reserve-btn">Réserver</button>
+                    <p id="reservation-details"></p>
+                </div>
+            </div>
+            <div class="reservation-box">
+                <img src="{{ asset('images/reservation_maudits.png') }}" alt="Les Amants Maudits" class="reservation-image">
+                <div class="reservation-form">
+                    <h2>Les Amants Maudits</h2>
+                    <div class="date-picker">
+                        <input type="text" id="date-input-2" placeholder="Choisir une date" readonly>
+                        <div class="availability-slots">
+                            <!-- Les créneaux seront générés dynamiquement -->
+                        </div>
+                    </div>
+                    <button id="reserve-btn-2">Réserver</button>
+                    <p id="reservation-details-2"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cancellation-policy">
+        <h1>Politique d'annulation</h1>
+        <div class="notebook-container">
+            <div class="cancellation-content">
+                <p>
+                    Les réservations effectuées sur notre site sont fermées et définitives.
+                    Une fois la réservation validée et payée, aucun remboursement, report ou modification ne sera possible, quelle qu’en soit la raison. Toute place non utilisée sera perdue et ne donnera lieu à aucune compensation.
+                </p>
+                <p>
+                    En cas d’annulation de la session par Kuriosity-Club pour des raisons indépendantes de votre volonté, la totalité du montant payé sera remboursée. Toutefois, aucun autre dédommagement ou indemnité ne pourra être réclamé par le Client.                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="payment-methods">
+        <h1>Mode de paiement accepté</h1>
+        <p>Voici les différents moyens de paiement que nous <br> acceptons, merci de vous y conformer</p>
+        <div class="payment-icons">
+            <img src="{{ asset('images/visa.png') }}" alt="Visa">
+            <img src="{{ asset('images/mastercard.png') }}" alt="MasterCard">
+            <img src="{{ asset('images/applepay.png') }}" alt="Apple Pay">
+            <img src="{{ asset('images/sans-contact.png') }}" alt="Paiement sans contact">
+            <img src="{{ asset('images/gpay.png.png') }}" alt="Google Pay">
+            <img src="{{ asset('images/paypal.png') }}" alt="PayPal">
+        </div>
+    </section>
+
 {% endblock %}
