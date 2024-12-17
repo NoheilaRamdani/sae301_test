@@ -1,0 +1,92 @@
+#missionk-title {
+  position: relative;
+  padding: 50px;
+
+  .missionk-content {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 60px;
+
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 1.25rem;
+    }
+  }
+
+  .missionk-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .column-left,
+  .column-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .column-left
+  .text-overlay {
+    position: relative;
+
+    img {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h3 {
+      font-family: $font-text;
+      font-weight: normal;
+      margin-bottom: 45px;
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 83%;
+      color: #333;
+      font-size: 1.25rem;
+      text-align: left;
+      line-height: 2;
+      padding: 15px;
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      br {
+        display: block;
+        content: "";
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .column-right img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .missionk-btn-section {
+    .btn-center {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: 70px auto;
+      max-width: 325px;
+      padding: 10px;
+      font-size: 1.5rem;
+    }
+  }
+}

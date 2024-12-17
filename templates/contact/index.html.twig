@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <section id="contact">
+            <h1>CONTACT</h1>
+        <div class="contact-columns">
+            <div class="column-left">
+                <div class="text-overlay">
+                    <img src="{{ asset('images/notebook.png') }}" alt="Feuille de carnet">
+                    <div class="text">
+                        <h3>Bonjour, Kurious !</h3>
+                        <p>
+                            Contactez le Kuriosity Club <br>
+
+                            Vous avez une question, une idée, ou envie de discuter d’une énigme ? Le Kuriosity Club est là pour vous.<br>
+
+                            Que ce soit pour découvrir nos aventures immersives ou organiser une session privée, contactez-nous !<br>
+
+                            Numéro : 06.95.43.74.98 <br>
+                            E-mail : contact@kuriosity-club.fr <br>
+                            Remplissez le formulaire ci-dessous ou retrouvez-nous sur nos réseaux sociaux. Plongez dans l’univers du Kuriosity Club – l’évasion n’attend pas !
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="column-right">
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_row(form.prenom) }}
+                    {{ form_row(form.name) }}
+                </div>
+                {{ form_row(form.email) }}
+                {{ form_row(form.message) }}
+                <div class="form-submit">
+                    {{ form_row(form.submit) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+
+
+<section id="contact-title">
+    <div class="contact-content">
+
+        <p>Prêts à plonger dans l’aventure ? Venez vivre l’expérience Kuriosity Club directement sur place !</p> <br>
+        <p>Adresse : 75 rue du Grand Véon, 10000 Troyes</p>
+    </div>
+
+    </section>
+
+    <section id="map-section">
+        <div class="map-container">
+            <img src="{{ asset('images/map.png') }}" alt="Map">
+        </div>
+    </section>
+
+    <section class="opening-hours">
+        <img src="{{ asset('images/scotch.png') }}" alt="Scotch" class="scotch-image">
+        <div class="scotch-title">
+            Horaires d'ouvertures <br> <p> (sur réservation)</p>
+        </div>
+        <div class="opening-hours-content">
+            <div class="notebook-image">
+                <table>
+                    <tr>
+                        <td>MARDI</td>
+                        <td>14H -20H</td>
+                    </tr>
+                    <tr>
+                        <td>MERCREDI</td>
+                        <td>14H -20H</td>
+                    </tr>
+                    <tr>
+                        <td>JEUDI</td>
+                        <td>14H -20H</td>
+                    </tr>
+                    <tr>
+                        <td>VENDREDI</td>
+                        <td>14H -20H</td>
+                    </tr>
+                    <tr>
+                        <td>SAMEDI</td>
+                        <td>10H -21H</td>
+                    </tr>
+                    <tr>
+                        <td>DIMANCHE</td>
+                        <td>10H -18H</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="faq-title">
+            <h1>FAQ</h1>
+        </div>
+        <p>Perdus dans l’énigme ? On vous éclaire !</p>
+        <div class="faq-item">
+            <h3>QUESTIONS FREQUENTES :</h3>
+            <button class="faq-question">
+                Faut-il une réservation pour jouer ?
+                <span class="arrow"> > </span>
+            </button>
+            <div class="faq-answer">
+                <p>Oui, une réservation est nécessaire sauf exception. Dans ce cas, contactez Mme K.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Combien de joueurs sont nécessaires pour participer ?
+                <span class="arrow"> > </span>
+            </button>
+            <div class="faq-answer">
+                <p>Un minimum de 3 joueurs est requis pour participer. </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Est-ce adapté pour les débutants ?
+                <span class="arrow"> > </span>
+            </button>
+            <div class="faq-answer">
+                <p>Oui, l'escape game est parfaitement adapté pour les débutants.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Que se passe-t-il si nous ne trouvons pas la solution à temps ?
+                <span class="arrow"> > </span>
+            </button>
+            <div class="faq-answer">
+                <p>Si vous ne trouvez pas la solution à temps, le jeu se termine, mais un membre de l'équipe peut vous fournir des indices pour vous aider à résoudre les énigmes.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Quel est l’âge minimum pour participer ?
+                <span class="arrow"> > </span>
+            </button>
+            <div class="faq-answer">
+                <p>Nous recommandons un âge minimum de 12 ans pour profiter pleinement de l'expérience. <br> Les joueurs de moins de 16 ans doivent être accompagnés par un adulte.</p>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

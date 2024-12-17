@@ -1,0 +1,23 @@
+// Polices
+@font-face {
+  font-family: 'ElegantTypewriter';
+  src: url('../fonts/ElegantTypeWriter.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'TypeMachine';
+  src: url('../fonts/TypeMachine.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+$font-title: 'ElegantTypewriter', sans-serif;
+$font-text: 'TypeMachine', sans-serif;
+// Couleurs
+
+$background-color:#F5EFE6;
+$brown-color:#3D2C20;
+$color-btn:#624332;
+$hover-btn:#D3BC92;
+$highlight-color:#C1A264;
+$boite-color:#F0E2D1;

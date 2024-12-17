@@ -1,0 +1,163 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Mission K{% endblock %}
+
+{% block body %}
+    <section class="hero">
+        <a href="#section-discover">
+            <img src="{{ asset('images/scroll_invite.png') }}" alt="Scroll Invite" class="scroll-invite"/>
+        </a>
+    </section>
+    <section id="section-discover">
+        <div class="section-content">
+            <h1>Kuriosity Club</h1>
+            <p>Découvrez des univers mystérieux, résolvez des énigmes complexes <br>
+                et laissez votre curiosité guider chaque étape de votre aventure.</p>
+        </div>
+        <section id="section-features">
+            <div class="features-container">
+                <div class="feature-column">
+                    <div class="feature-icon">
+                        <img src="{{ asset('images/key.svg') }}" alt="Key Icon">
+                    </div>
+                    <h2>Salle Privative</h2>
+                    <p>Pour accueillir votre anniversaire, votre enterrement de vie de célibataire ou tout autre évenement entre amis.</p>
+                </div>
+
+                <div class="feature-column">
+                    <div class="feature-icon">
+                        <img src="{{ asset('images/teambuilding.svg') }}" alt="Icone Discussion">
+                    </div>
+                    <h2>Team building</h2>
+                    <p>Une activité favorisant l’esprit d’équipe ainsi qu’un espace d’accueil équipé d’un rétro projecteur ; parfait pour les professionnels !</p>
+                </div>
+
+                <div class="feature-column">
+                    <div class="feature-icon">
+                        <img src="{{ asset('images/deuxsalles.svg') }}" alt="Découverte Icon">
+                    </div>
+                    <h2>Deux salles</h2>
+                    <p>Deux scénarios originaux aux thématiques variées pour répondre à toutes vos envies. (salles climatisées)</p>
+                </div>
+            </div>
+        </section>
+        <div class="corner corner-top-left"></div>
+        <div class="corner corner-bottom-right"></div>
+    </section>
+
+    <section id="section-popular-themes">
+        <div class="section-content">
+            <h1>Thèmes Populaires</h1>
+            <p>Explorez une sélection de nos thèmes les plus appréciés, conçus pour stimuler votre curiosité et enrichir votre expérience.</p>
+        </div>
+        <div class="themes-container">
+            <div class="theme-column">
+                <h3>Mission K</h3>
+                <p>Le Consortium des Élites fait appel au Kuriosity-Club pour lui envoyer ses meilleurs agents Kurious, afin de sauver la Mission K et lui permettre d’aboutir.</p>
+                <a href="{{ path('mission_k') }}" class="btn">Découvrir plus</a>
+            </div>
+            <div class="theme-column">
+                <h3>Les Amants Maudits</h3>
+                <p>Rejeté par la société et fou de douleur, Eugène, scientifique déchu, ne vit plus que pour une chose : venger Elisabeth, son amour perdu, et anéantir le monde qui les a brisés.</p>
+                <button class="btn">Découvrir plus</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="carousel-container">
+        <div class="section-content">
+            <h2>Nos Salles</h2>
+        </div>
+        <!-- Les flèches sont en dehors de la div "carousel" -->
+        <button class="carousel-prev">
+            <img src="{{ asset('images/prev-icon.svg') }}" alt="Précédent">
+        </button>
+        <button class="carousel-next">
+            <img src="{{ asset('images/next-icon.svg') }}" alt="Suivant">
+        </button>
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="{{ asset('images/lesamantsmaudits.png') }}" alt="image salle les amants maudits">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('images/missionk.png') }}" alt="Image salle mission k">
+            </div>
+        </div>
+    </div>
+
+
+
+    <section id="testimonials">
+        <div class="section-content">
+            <h2>Témoignages</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-box">
+                    <div class="testimonial-image">
+                        <img src="{{ asset ('images/clou.png') }}" alt="Clou" class="clou-image">
+                    </div>
+                    <p class="testimonial-text">Mon premier escape game, et je n’ai pas été déçue, Mme K pose l’ambiance dés notre arrivée, elle joue son rôle à merveille. Les énigmes sont bien pensées, il faut se creuser les méninges. Les décors sont vraiment tops. </p>
+                    <div class="testimonial-author">
+                        <img class="profile-photo" src="{{ asset ('images/pp1.png') }}" alt="Profil 1">
+                        <div class="author-info">
+                            <span class="author-name">Chloé</span> <br>
+                            <span class="author-rating">5/5. il y a 2 semaines</span>
+                            <div class="stars">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-image">
+                        <img src="{{ asset ('images/clou.png') }}" alt="Clou" class="clou-image">
+                    </div>
+                    <p class="testimonial-text"> Très sympa ! énigme et ambiance immersive. Sans parler de l'accueil qui était parfait. On a passé un très bon moment.</p>
+                    <div class="testimonial-author">
+                        <img class="profile-photo" src="{{ asset ('images/pp2.png') }}" alt="Profil 1">
+                        <div class="author-info">
+                            <span class="author-name">Chris L</span> <br>
+                            <span class="author-rating">4/5. il y a 5 jours </span>
+                            <div class="stars">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-box">
+                    <div class="testimonial-image">
+                        <img src="{{ asset ('images/clou.png') }}" alt="Clou" class="clou-image">
+                    </div>
+                    <p class="testimonial-text"> Super accueil ! Mission de Mme K très bien pensée, nous avons passé un super moment.
+                        Nous recommandons et nous reviendrons pour une nouvelle mission avec plaisir ! </p>
+                    <div class="testimonial-author">
+                        <img class="profile-photo" src="{{ asset ('images/pp3.png') }}" alt="Profil 1">
+                        <div class="author-info">
+                            <span class="author-name">Malcolm Lutz</span> <br>
+                            <span class="author-rating">5/5. il y a 3 mois</span>
+                            <div class="stars">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

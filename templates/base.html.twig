@@ -1,17 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<head>
+    <title>{% block title %}Mission K{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    <link rel="icon" type="image/png" href="{{ asset('images/ico/favicon-96x96.png') }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/ico/favicon.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('images/ico/favicon.ico') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/ico/apple-touch-icon.png') }}" />
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+
+
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ asset('images/logo-rectangle.svg') }}" alt="Logo">
+        </div>
+        <ul class="menu">
+            <li><a href="{{ path('accueil') }}" class="{% if app.request.get('_route') == 'accueil' %}active{% endif %}">Accueil</a></li>
+            <li><a href="{{ path('mission_k') }}" class="{% if app.request.get('_route') == 'mission_k' %}active{% endif %}">Mission K</a></li>
+            <li><a href="{{ path('contact') }}" class="{% if app.request.get('_route') == 'contact' %}active{% endif %}">Contact</a></li>
+            <li><a href="{{ path('reservation') }}" class="{% if app.request.get('_route') == 'reservation' %}active{% endif %}">Réservation</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    {% block body %}{% endblock %}
+</main>
+<footer class="footer">
+    <div class="footer-columns">
+        <div class="column">
+            <h2>NOUS CONTACTER</h2>
+            <p>10 000 Troyes</p>
+            <p>75 Rue du Grand Véon</p>
+            <p>06 95 43 74 98</p>
+            <p>contact@kuriosity-club.fr</p>
+        </div>
+        <div class="column">
+            <h2>MENTIONS LEGALES</h2>
+            <ul>
+                <li><a href="#">CGU</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>SUIVEZ-NOUS</h2>
+            <ul class="social-links">
+                <li><a href="#"><img src="{{ asset('images/yt.png') }}" alt="YouTube" class="youtube-icon"> - YouTube</a></li>
+                <li><a href="#"><img src="{{ asset('images/insta.png') }}" alt="Instagram"> - Instagram</a></li>
+                <li><a href="#"><img src="{{ asset('images/facebook.png') }}" alt="Facebook"> - Facebook</a></li>
+                <li><a href="#"><img src="{{ asset('images/x.png') }}" alt="Twitter"> - Twitter</a></li>
+
+
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>

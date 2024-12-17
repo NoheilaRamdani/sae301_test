@@ -1,0 +1,384 @@
+#contact {
+  h1 {
+    padding-top: 130px;
+    font-size: 2.5rem;
+  }
+h3{
+  padding-bottom:40px;
+  font-weight:normal;
+}
+  .contact-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left:160px;
+  }
+
+  .column-left {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 80px;
+    left: 45px;
+
+
+    img {
+      width: 100%;
+      max-width: 600px;
+      transform: scaleX(-1);
+    }
+  }
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 83%;
+    color: #333;
+    font-size: 1.25rem;
+    text-align: left;
+    line-height: 2;
+    padding: 15px;
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    br {
+      display: block;
+      content: "";
+      margin-bottom: 15px;
+    }
+  }
+
+  .column-right {
+    flex: 1;
+    margin-top: 170px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      font-family: $font-text;
+      max-width: 500px;
+      margin: 0 auto;
+
+      label {
+        font-size: 1.35rem;
+        color: $brown-color;
+        margin-bottom: 5px;
+      }
+
+      .form-group {
+        display: flex;
+        gap: 20px;
+
+        input {
+          flex: 1;
+          font-family: $font-text;
+          padding: 10px;
+          font-size: 1rem;
+          border-radius: 5px;
+          width: 100%;
+          background-color: $boite-color;
+          color: #333;
+        }
+      }
+      .form-submit {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        font-size: 1.10rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        font-family: $font-text;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+        background-color: $boite-color;
+        color: #333;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+
+        &:focus {
+          box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.15);
+          outline: none;
+          border-color: lighten($color-btn, 10%);
+        }
+      }
+
+      textarea {
+        height: 340px;
+        resize: vertical;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        font-family: $font-text;
+        color: #aaa;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: $color-btn;
+        color: $background-color;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-align: center;
+
+        margin: 0 auto;
+        &:hover {
+          background-color: darken($color-btn, 10%);
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          background-color: darken($color-btn, 15%);
+          transform: translateY(0);
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+#contact_submit{
+  text-align:center;
+  padding: 7px 75px;
+}
+  @media (max-width: 768px) {
+    .contact-columns {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+#contact-title {
+  position: relative;
+  padding: 50px;
+
+  .contact-content {
+    text-align: left;
+    margin-bottom: 40px;
+    margin-top: 60px;
+    margin-left: 110px;
+  }
+}
+#map-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .map-container {
+    background-color: $brown-color;
+    height: 600px;
+    padding: 0px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 170px;
+
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+
+.faq {
+  padding: 145px;
+  color: $brown-color;
+  text-align: center;
+
+  h1 {
+    color: $brown-color;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom:50px;
+  }
+  h3{
+    text-align:left;
+    margin-bottom: 40px;
+  }
+  .faq-title {
+    width: 203px;
+    height: 211px;
+    background-image: url('/public/images/loupe.png');
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px;
+  }
+
+  .faq-title h1 {
+
+    font-size: 1.5em;  /* Taille du texte */
+    font-family: $font-title;
+    margin: 0;
+    position: relative;
+    left: 7px;
+    top: -8px;
+  }
+
+  p {
+    font-size: 1.15rem;
+    padding-bottom: 30px;
+  }
+
+  .faq-item {
+    margin-bottom: 15px;
+
+    .faq-question {
+      background-color: $boite-color;
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 100%;
+      text-align: left;
+      font-size: 1.1em;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      color: $brown-color;
+      font-family: $font-title;
+
+      &:hover {
+        background-color: darken($boite-color, 5%);
+      }
+
+      .arrow {
+        font-size: 1.5em;
+        font-family: $font-text;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 15px;
+      border: 1px solid #eee;
+      margin-top: 5px;
+      font-size: 1em;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      p{
+        font-size:1rem;
+      }
+    }
+
+    .faq-answer.active {
+      background-color: $boite-color;
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 100%;
+      text-align: left;
+      font-size: 1.1em;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      color: $brown-color;
+      font-family: $font-title;
+      max-height: 500px;
+    }
+
+    &.open .faq-question .arrow {
+      transform: rotate(90deg);  // Rotation de 90 degrés
+    }
+  }
+}
+.opening-hours {
+  position: relative;
+  padding-top: 130px;
+  padding-bottom: 50px;
+
+  .scotch-image {
+    max-width: 600px;
+    display: block;
+    margin: 0 auto -80px;
+    position: relative;
+  }
+
+  .scotch-title {
+    font-family: $font-text;
+    position: absolute;
+    top: 22.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    padding: 10px;
+
+    p{
+      font-size: 1.15rem;
+      color:$background-color;
+    }
+  }
+
+  .opening-hours-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .notebook-image {
+    background-image: url('/public/images/notebook-small.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: -2;
+  }
+
+  table {
+    font-family: $font-text;
+    font-size: 1.6rem;
+    width: 100%;
+    max-width: 712px;
+    border-collapse: collapse;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  th, td {
+    padding: 12px 86px;
+  }
+
+  th {
+    color: $brown-color;
+  }
+
+  td {
+    border: none;
+  }
+}

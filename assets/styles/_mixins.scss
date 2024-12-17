@@ -1,0 +1,19 @@
+@mixin title-and-description($title-color, $description-color) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    color: $title-color;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: $description-color;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}

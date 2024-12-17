@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mission K{% endblock %}
+
+{% block body %}
+    <section id="missionk-title">
+        <div class="missionk-content">
+            <h1>Mission K</h1>
+            <p>Découvrez la Mission K, embarquez sur le King Of Space (difficulté 4/5).</p>
+        </div>
+
+        <div class="missionk-columns">
+            <div class="column-left">
+                <div class="text-overlay">
+                    <img src="{{ asset('images/notebook.png') }}" alt="Feuille de carnet">
+                    <div class="text">
+                        <h3>Sauvez la Mission K</h3>
+                        <p>
+                            Le King of Space, vaisseau en route pour coloniser Proxima B, est en danger. Le contact avec l’ordinateur de bord Myst et le Capitaine Sticks a été perdu. À son bord, 300 colons et l’équipage, plongés en cryo-sommeil pour un voyage de 25 ans. <br>
+
+                            Le Consortium des Élites suspecte un sabotage par le Mouvement de Libération de la Terre et fait appel aux agents du Kuriosity-Club. <br>
+
+                            Votre mission : enquêter, résoudre les problèmes, et garantir la réussite de cette mission vitale pour l’humanité.<br>
+
+                            Vous n’aurez qu’une heure pour sauver l’avenir! Prêts à relever le défi ?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="column-right">
+                <img src="{{ asset('images/missionk_thumbnail.png') }}" alt="Image de l'espace">
+            </div>
+        </div>
+        <section class="missionk-btn-section">
+            <a href="{{ path('reservation') }}" class="btn btn-center">Réserver</a>
+        </section>
+    </section>
+
+
+{% endblock %}
