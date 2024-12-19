@@ -170,9 +170,12 @@ h3{
 
   .contact-content {
     text-align: left;
-    margin-bottom: 40px;
     margin-top: 60px;
     margin-left: 110px;
+
+    p{
+      font-size: 1.2rem;
+    }
   }
 }
 #map-section {
@@ -204,12 +207,12 @@ h3{
   padding: 40px 145px;
   color: $brown-color;
   text-align: center;
-  padding-bottom:220px;
+  padding-bottom: 220px;
 
   h1 {
     color: $brown-color;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 3.5em;
     margin-bottom: 50px;
   }
   h3 {
@@ -218,8 +221,8 @@ h3{
     margin-bottom: 40px;
   }
   .faq-title {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     background-image: url('/public/images/loupe.png');
     background-size: contain;
     background-position: center;
@@ -231,12 +234,12 @@ h3{
   }
 
   .faq-title h1 {
-    font-size: 1.5em;
+    font-size: 2.1em;
     font-family: $font-title;
     margin: 0;
     position: relative;
-    left: 7px;
-    top: -8px;
+    left: 10px;
+    top: -11px;
   }
 
   p {
@@ -283,7 +286,7 @@ h3{
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease-out;
-      margin-top: -1px; // Supprime l'espace entre la question et la réponse
+      margin-top: -1px;
       p {
         font-size: 1rem;
       }
@@ -304,13 +307,13 @@ h3{
       color: $brown-color;
       font-family: $font-title;
       max-height: 500px;
-      border-radius: 0 0 4px 4px; // Border radius uniquement sur les coins inférieurs
+      border-radius: 0 0 4px 4px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     &.open .faq-question {
-      border-radius: 4px 4px 0 0; // Border radius uniquement sur les coins supérieurs quand ouvert
-      border-bottom: none; // Supprime la bordure du bas pour une meilleure transition
+      border-radius: 4px 4px 0 0;
+      border-bottom: none;
     }
 
     &.open .faq-question .arrow {
@@ -332,7 +335,7 @@ h3{
   .scotch-title {
     font-family: $font-text;
     position: absolute;
-    top: 22.5%;
+    top: 23.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2rem;
@@ -389,5 +392,130 @@ h3{
 
   td {
     border: none;
+  }
+}
+@media (max-width: 768px) {
+  #contact {
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .contact-columns {
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .column-left {
+      position: static;
+      margin: 0 auto;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 50px;
+      }
+
+      .text {
+        position: relative;
+        transform: none;
+        left: 0;
+        top: 0;
+        width: 100%;
+        font-size: 1rem;
+        padding: 15px;
+      }
+    }
+
+    .column-right {
+      margin-top: 40px;
+      width: 100%;
+
+      .form-group {
+        flex-direction: column;
+      }
+    }
+  }
+
+  #contact-title {
+    padding: 20px;
+
+    .contact-content {
+      margin: 20px 0;
+      text-align: center;
+    }
+  }
+
+  #map-section {
+    height: auto;
+
+    .map-container {
+      margin-top: 40px;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  .opening-hours {
+    .scotch-image {
+      width: 100%;
+    }
+
+    .notebook-image {
+      width: 100%;
+      height: auto;
+      background-size: contain;
+    }
+
+    table {
+      font-size: 1rem;
+
+      th, td {
+        padding: 8px;
+      }
+    }
+  }
+
+  .faq {
+    padding: 20px;
+
+    .faq-title {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .faq-question,
+    .faq-answer {
+      font-size: 1rem;
+      padding: 10px;
+    }
+
+    .faq-item {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  #contact {
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    .text {
+      font-size: 0.9rem;
+    }
+  }
+
+  .opening-hours {
+    table {
+      font-size: 0.9rem;
+    }
   }
 }
