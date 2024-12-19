@@ -17,3 +17,27 @@
     line-height: 1.6;
   }
 }
+
+// Responsive variables
+$mobile-breakpoint: 576px;
+$tablet-breakpoint: 992px;
+$desktop-breakpoint: 1200px;
+
+// Mixins for responsive design
+@mixin mobile {
+  @media (max-width: #{$mobile-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-breakpoint + 1}) and (max-width: #{$tablet-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet-breakpoint + 1}) {
+    @content;
+  }
+}

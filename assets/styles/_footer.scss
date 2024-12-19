@@ -1,19 +1,21 @@
 .footer {
   background-color: $brown-color;
-  padding: 40px 20px;
+  padding: 40px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-
 
   .footer-columns {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
+    margin: 0 auto;
     margin-bottom: 20px;
-    padding: 0 20px;
+    padding: 0 40px;
+    padding-left: 160px;
+    box-sizing: border-box;
 
     .column {
       flex: 1;
@@ -23,17 +25,19 @@
       font-size: 14px;
       text-align: left;
 
-    h2{
-      color:#fff;
-      margin-bottom: 30px;
-      font-size: 24px;
-      text-align: left;
-      font-weight: normal;
-}
-      p{
+      h2 {
+        color: #fff;
+        margin-bottom: 30px;
+        font-size: 24px;
+        text-align: left;
+        font-weight: normal;
+      }
+
+      p {
         margin-top: 5px;
         color: $background-color;
       }
+
       a {
         color: $background-color;
         text-decoration: none;
@@ -58,6 +62,7 @@
     left: 0;
     z-index: -1;
   }
+
   .social-links {
     list-style: none;
     padding: 0;
@@ -80,6 +85,7 @@
           height: 20px;
           margin-right: 10px;
         }
+
         .youtube-icon {
           width: 22px;
           height: auto;

@@ -4,43 +4,85 @@
 
 {% block body %}
 
-
-
-
+    <section class="pricing">
+        <h1>TARIFS</h1>
+        <img src="{{ asset('images/scotch2.png') }}" alt="Scotch" class="scotch-image">
+        <div class="scotch-title">
+            <p>
+                <span>Nombre d'agents</span>
+                <span>Tarif par agent</span>
+                <span>Tarif total</span>
+            </p>
+        </div>
+        <div class="pricing-content">
+            <div class="notebook-image">
+                <table>
+                    <tr>
+                        <td>3</td>
+                        <td>28€</td>
+                        <td>84€</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>25€</td>
+                        <td>100€</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>23€</td>
+                        <td>115€</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>21€</td>
+                        <td>126€</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <p>Pour les groupes de plus de 6 personnes, veuillez nous contacter à <br> l'adresse contact@kuriosity-club.fr</p>
+    </section>
 
 
     <section class="reservation-section">
+        <h3>RESERVATION</h3>
         <div class="reservation-content">
             <div class="reservation-box">
-                <img src="{{ asset('images/missionk.png') }}" alt="Mission K" class="reservation-image">
+                <img src="{{ asset('images/tape1.png') }}" alt="Scotch" class="tape-image">
+                <img src="{{ asset('images/reservation_missionk.png') }}" alt="Mission K" class="reservation-image">
                 <div class="reservation-form">
-                    <h2>Mission K</h2>
                     <div class="date-picker">
-                        <input type="text" id="date-input" placeholder="Choisir une date" readonly>
+                        <input type="text" id="date-input" placeholder="Choisissez une date" readonly>
                         <div class="availability-slots">
                             <!-- Les créneaux seront générés dynamiquement -->
                         </div>
                     </div>
-                    <button id="reserve-btn">Réserver</button>
-                    <p id="reservation-details"></p>
+                    <button id="reserve-btn" class="reserve-btn">Réserver</button>
+                    <div class="reservation-details-container">
+                        <p id="reservation-details"></p>
+                    </div>
                 </div>
             </div>
             <div class="reservation-box">
+                <img src="{{ asset('images/tape1.png') }}" alt="Scotch" class="tape-image-bottom-right">
+
                 <img src="{{ asset('images/reservation_maudits.png') }}" alt="Les Amants Maudits" class="reservation-image">
                 <div class="reservation-form">
-                    <h2>Les Amants Maudits</h2>
                     <div class="date-picker">
-                        <input type="text" id="date-input-2" placeholder="Choisir une date" readonly>
+                        <input type="text" id="date-input-2" placeholder="Choisissez une date" readonly>
                         <div class="availability-slots">
                             <!-- Les créneaux seront générés dynamiquement -->
                         </div>
                     </div>
-                    <button id="reserve-btn-2">Réserver</button>
-                    <p id="reservation-details-2"></p>
+                    <button id="reserve-btn-2" class="reserve-btn">Réserver</button>
+                    <div class="reservation-details-container">
+                        <p id="reservation-details-2"></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <section class="cancellation-policy">
         <h1>Politique d'annulation</h1>

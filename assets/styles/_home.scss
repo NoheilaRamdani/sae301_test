@@ -10,7 +10,6 @@
   text-align: center;
   color: white;
 
-  // Ajout de l'overlay
   &::before {
     content: '';
     position: absolute;
@@ -18,13 +17,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); // Noir semi-transparent
-    z-index: -1; // Juste en dessous du contenu
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
   }
 }
 
 .hero-content {
-  position: relative; // Assurez-vous qu'il soit au-dessus de l'overlay
+  position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -36,8 +35,8 @@
     font-size: 3.5rem;
     font-weight: bold;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    color:#fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #fff;
   }
 
   p {
@@ -47,25 +46,26 @@
   }
 }
 
+.scroll-invite-container {
+  position: relative;
+  z-index: 10; // Créer une pile au-dessus de .hero
+}
 
-.scroll-invite {
-  width: 50px;
-  height: auto;
-  animation: bounce 3s infinite;
-
+.scroll-invite-link {
   position: absolute;
-  bottom: 20px;
-}
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
+  img.scroll-invite {
+    width: 50px;
+    height: auto;
+    animation: bounce 3s infinite;
   }
 }
-
 #section-discover {
   position: relative;
   height: 700px;
@@ -160,6 +160,32 @@
   align-items: center;
   padding: 60px 20px;
 
+  .corner-key {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: auto;
+    z-index: 2;
+  }
+  @include mobile {
+    #section-popular-themes {
+      .corner-key {
+        width: 20px;
+        top: 10px;
+        left: 10px;
+      }
+    }
+  }
+
+  @include tablet {
+    #section-popular-themes {
+      .corner-key {
+        width: 80px;
+        top: 5px;
+        left: 5px;
+      }
+    }
+  }
   &::before {
     content: "";
     position: absolute;
@@ -248,8 +274,8 @@
       img {
         width: 100%;
         height: 100%;
-        object-fit: contain; // Garde l'image entière visible
-        object-position: center; // Centre l'image
+        object-fit: contain;
+        object-position: center;
       }
 
       &.active {
@@ -265,7 +291,7 @@
     top: 55%;
     transform: translateY(-50%);
     cursor: pointer;
-    background: rgba(0,0,0,0); // Fond semi-transparent
+    background: rgba(0,0,0,0);
     border: none;
     z-index: 3;
     transition: transform 0.2s ease;
@@ -282,11 +308,11 @@
   }
 
   .carousel-prev {
-    left: -80px; // Positionne le bouton à gauche du carousel
+    left: -80px;
   }
 
   .carousel-next {
-    right: -80px; // Positionne le bouton à droite du carousel
+    right: -80px;
   }
 }
 
@@ -385,6 +411,296 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+// Hero section responsive
+.hero {
+  @include mobile {
+    height: 60vh;
+    padding: 20px;
+
+    .hero-content {
+      max-width: 95%;
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1rem;
+        max-width: 100%;
+      }
+    }
+
+    .scroll-invite {
+      width: 30px;
+      bottom: 10px;
+    }
+  }
+}
+
+// Section Discover responsive
+#section-discover {
+  @include mobile {
+    height: auto;
+    padding: 40px 15px;
+
+    #section-features {
+      .features-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 10px;
+      }
+
+      .feature-column {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+
+        .feature-icon img {
+          height: 80px;
+        }
+
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .corner {
+      display: none; // Hide corner decorations on mobile
+    }
+  }
+
+  @include tablet {
+    height: auto;
+    padding: 60px 30px; // Increased padding
+
+    #section-features {
+      .features-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .feature-column {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px; // Added margin between columns
+        padding: 0 20px;
+
+        .feature-icon img {
+          height: 100px;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// Popular Themes section responsive
+#section-popular-themes {
+  @include mobile {
+    height: auto;
+    padding: 40px 15px;
+
+    .themes-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding: 0 10px;
+    }
+
+    .theme-column {
+      width: 100%;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        display: block;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  @include tablet {
+    height: auto;
+    padding: 60px 30px; // Increased padding
+
+    .themes-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .theme-column {
+      width: 100%;
+      text-align: center;
+      padding: 0 20px;
+      margin-bottom: 30px;
+
+      h3 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      .btn {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+// Carousel responsive
+.carousel-container {
+  @include mobile {
+    max-width: 100%;
+    padding: 0 15px;
+
+    .section-content h2 {
+      font-size: 2rem;
+      margin-top: 50px;
+    }
+
+    .carousel {
+      height: 300px;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+      top: 50%;
+      display: block;
+      width: 40px;
+      padding: 5px;
+      z-index: 10;
+    }
+
+    .carousel-prev {
+      left: 0;
+    }
+
+    .carousel-next {
+      right: 0;
+    }
+  }
+
+  @include tablet {
+    .carousel {
+      height: 400px;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+      top: 50%;
+      width: 50px;
+    }
+  }
+
+  @include desktop {
+    .carousel-prev {
+      left: -60px;
+    }
+
+    .carousel-next {
+      right: -60px;
+    }
+  }
+}
+
+// Testimonials responsive
+#testimonials {
+  @include mobile {
+    padding: 40px 15px;
+    padding-bottom: 150px;
+
+    .section-content {
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .testimonials-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .testimonial-box {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        padding: 20px;
+
+        .testimonial-image img {
+          width: 40px;
+          top: 20px;
+        }
+
+        .testimonial-text {
+          margin-top: 40px;
+          font-size: 0.9rem;
+        }
+
+        .testimonial-author {
+          margin-top: 10px;
+
+          .profile-photo {
+            width: 50px;
+            height: 50px;
+          }
+
+          .author-info {
+            .author-name {
+              font-size: 0.9rem;
+            }
+
+            .author-rating {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    .testimonials-container {
+      flex-direction: column;
+      align-items: center;
+
+      .testimonial-box {
+        width: 70%;
+        max-width: 500px;
       }
     }
   }

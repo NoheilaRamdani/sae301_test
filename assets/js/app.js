@@ -1,140 +1,232 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // FAQ Section
     const faqItems = document.querySelectorAll('.faq-item');
 
-    if (faqItems.length === 0) {
-        console.error('Aucun élément .faq-item trouvé');
-        return;
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const questionButton = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const arrow = questionButton.querySelector('.arrow');
+
+            if (questionButton && answer && arrow) {
+                questionButton.addEventListener('click', () => {
+                    item.classList.toggle('open');
+                    answer.classList.toggle('active');
+                });
+            }
+        });
     }
 
-    faqItems.forEach(item => {
-        const questionButton = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        const arrow = questionButton.querySelector('.arrow'); // Récupère le chevron
+    // Carousel
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        const carouselItems = carouselContainer.querySelectorAll('.carousel-item');
+        const prevButton = carouselContainer.querySelector('.carousel-prev');
+        const nextButton = carouselContainer.querySelector('.carousel-next');
 
-        if (!questionButton || !answer || !arrow) {
-            console.error('Élément mal structuré', item);
-            return;
-        }
+        if (carouselItems.length > 0 && prevButton && nextButton) {
+            let currentIndex = 0;
 
-        questionButton.addEventListener('click', () => {
-            // Ajoute ou retire la classe 'open' pour faire pivoter l'arrow
-            item.classList.toggle('open');
-            // Affiche ou cache la réponse en fonction de la classe 'active'
-            answer.classList.toggle('active');
-        });
-    });
-});
+            function updateCarousel() {
+                carouselItems.forEach((item, index) => {
+                    item.classList.remove('active');
+                    item.style.transform = 'translateX(100%)';
+                });
 
-//carousel
+                carouselItems[currentIndex].classList.add('active');
+                carouselItems[currentIndex].style.transform = 'translateX(0)';
+            }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    const prevButton = document.querySelector('.carousel-prev');
-    const nextButton = document.querySelector('.carousel-next');
-    let currentIndex = 0;
-
-    function updateCarousel() {
-        carouselItems.forEach((item, index) => {
-            item.classList.remove('active'); // Retire la classe active
-            item.style.transform = 'translateX(100%)'; // Position par défaut à droite
-        });
-
-        // Ajoute la classe active à l'image courante
-        carouselItems[currentIndex].classList.add('active');
-        carouselItems[currentIndex].style.transform = 'translateX(0)';
-
-
-    }
-
-    nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % carouselItems.length;
-        updateCarousel();
-    });
-
-    prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-        updateCarousel();
-    });
-
-    updateCarousel(); // Initialisation
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollInviteLink = document.querySelector('.scroll-invite-link');
-
-    scrollInviteLink.addEventListener('click', function(e) {
-        e.preventDefault(); // Empêche le comportement de lien par défaut
-
-        const targetSection = document.querySelector(this.getAttribute('href'));
-
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth' // Défilement en douceur
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % carouselItems.length;
+                updateCarousel();
             });
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+                updateCarousel();
+            });
+
+            updateCarousel();
         }
-    });
-});
+    }
 
+    // Scroll Invite Link
+    const scrollInviteLink = document.querySelector('.scroll-invite-link');
+    if (scrollInviteLink) {
+        scrollInviteLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute('href'));
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
+    // Reservation Date Picker
+    const horaireOuverture = {
+        0: { debut: 10, fin: 18 },   // DIMANCHE
+        1: { debut: null, fin: null },   // LUNDI (fermé)
+        2: { debut: 14, fin: 20 },   // MARDI
+        3: { debut: 14, fin: 20 },   // MERCREDI
+        4: { debut: 14, fin: 20 },   // JEUDI
+        5: { debut: 14, fin: 20 },   // VENDREDI
+        6: { debut: 10, fin: 21 }    // SAMEDI
+    };
+
     const dateInput = document.getElementById('date-input');
     const dateInput2 = document.getElementById('date-input-2');
     const reserveBtn = document.getElementById('reserve-btn');
     const reserveBtn2 = document.getElementById('reserve-btn-2');
     const reservationDetails = document.getElementById('reservation-details');
     const reservationDetails2 = document.getElementById('reservation-details-2');
-    const availabilitySlots = document.querySelectorAll('.availability-slots');
 
-    // Désactiver les dates passées
-    const today = new Date();
-    const minDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-    dateInput.min = minDate;
-    dateInput2.min = minDate;
+    if (dateInput && dateInput2 && reserveBtn && reserveBtn2) {
+        const datePickerOptions = {
+            dateFormat: "d/m/Y",
+            minDate: "today",
+            locale: "fr",
+            disableMobile: "true",
+            onDayCreate: function(dObj, dStr, fp, dayElem) {
+                const date = dayElem.dateObj;
+                const jour = date.getDay();
+                const horaires = horaireOuverture[jour];
 
-    // Initialiser les dates d'aujourd'hui
-    dateInput.value = minDate;
-    dateInput2.value = minDate;
+                if (!horaires || horaires.debut === null) {
+                    dayElem.classList.add('flatpickr-disabled');
+                }
+            }
+        };
 
-    // Simuler la disponibilité des créneaux
-    updateAvailability(dateInput);
-    updateAvailability(dateInput2);
+        const datepicker1 = flatpickr(dateInput, {
+            ...datePickerOptions,
+            onChange: function() {
+                updateAvailability(dateInput);
+            }
+        });
 
-    dateInput.addEventListener('change', () => updateAvailability(dateInput));
-    dateInput2.addEventListener('change', () => updateAvailability(dateInput2));
+        const datepicker2 = flatpickr(dateInput2, {
+            ...datePickerOptions,
+            onChange: function() {
+                updateAvailability(dateInput2);
+            }
+        });
 
-    reserveBtn.addEventListener('click', () => {
-        const selectedSlot = Array.from(availabilitySlots[0].querySelectorAll('.slot')).find(slot => slot.classList.contains('selected'));
-        if (selectedSlot) {
-            reservationDetails.textContent = `Réservé: ${dateInput.value} à ${selectedSlot.textContent}`;
-        } else {
-            reservationDetails.textContent = '';
-        }
-    });
+        function updateAvailability(inputElement) {
+            const availabilitySlots = inputElement.closest('.reservation-form').querySelector('.availability-slots');
+            availabilitySlots.innerHTML = '';
 
-    reserveBtn2.addEventListener('click', () => {
-        const selectedSlot = Array.from(availabilitySlots[1].querySelectorAll('.slot')).find(slot => slot.classList.contains('selected'));
-        if (selectedSlot) {
-            reservationDetails2.textContent = `Réservé: ${dateInput2.value} à ${selectedSlot.textContent}`;
-        } else {
-            reservationDetails2.textContent = '';
-        }
-    });
+            const selectedDate = new Date(inputElement.value.split('/').reverse().join('-'));
+            const jour = selectedDate.getDay();
+            const horaires = horaireOuverture[jour];
 
-    function updateAvailability(dateInput) {
-        const availabilitySlots = dateInput.parentNode.querySelectorAll('.availability-slots');
-        availabilitySlots.forEach((slots, index) => {
-            slots.innerHTML = '';
-            for (let i = 12; i <= 17; i++) {
+            if (!horaires || horaires.debut === null) {
+                availabilitySlots.innerHTML = '<p>Fermé ce jour</p>';
+                return;
+            }
+
+            const maxCreneauxParLigne = 2;
+            let creneauxCourants = 0;
+            let ligneActuelle = document.createElement('div');
+            ligneActuelle.classList.add('slot-ligne');
+            availabilitySlots.appendChild(ligneActuelle);
+
+            for (let i = horaires.debut; i < horaires.fin; i++) {
                 const slot = document.createElement('div');
                 slot.classList.add('slot');
                 slot.textContent = `${i}h`;
+
                 slot.addEventListener('click', () => {
-                    slots.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
+                    availabilitySlots.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
                     slot.classList.add('selected');
                 });
-                slots.appendChild(slot);
+
+                ligneActuelle.appendChild(slot);
+                creneauxCourants++;
+
+                if (creneauxCourants >= maxCreneauxParLigne) {
+                    creneauxCourants = 0;
+                    ligneActuelle = document.createElement('div');
+                    ligneActuelle.classList.add('slot-ligne');
+                    availabilitySlots.appendChild(ligneActuelle);
+                }
             }
-        });
+        }
+
+        reserveBtn.addEventListener('click', () => handleReservation(dateInput, reservationDetails));
+        reserveBtn2.addEventListener('click', () => handleReservation(dateInput2, reservationDetails2));
+
+        function handleReservation(dateInputElement, detailsElement) {
+            const availabilitySlots = dateInputElement.closest('.reservation-form').querySelector('.availability-slots');
+            const selectedSlot = availabilitySlots.querySelector('.slot.selected');
+
+            if (dateInputElement.value && selectedSlot) {
+                detailsElement.textContent = `Réservé: ${dateInputElement.value} à ${selectedSlot.textContent}`;
+            } else {
+                detailsElement.textContent = 'Veuillez sélectionner une date et un créneau';
+            }
+        }
+
+        updateAvailability(dateInput);
+        updateAvailability(dateInput2);
     }
 });
+// Back to Top Button
+    function createBackToTopButton() {
+        // Créer l'élément du bouton
+        const backToTopButton = document.createElement('button');
+        backToTopButton.classList.add('back-to-top');
+        backToTopButton.innerHTML = '↑';
+        backToTopButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        `;
+
+        // Ajouter le bouton au body
+        document.body.appendChild(backToTopButton);
+
+        // Gestion de la visibilité
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Action de scroll
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Hover effect
+        backToTopButton.addEventListener('mouseenter', () => {
+            backToTopButton.style.opacity = '1';
+        });
+
+        backToTopButton.addEventListener('mouseleave', () => {
+            backToTopButton.style.opacity = '0.7';
+        });
+    }
+
+    // Appeler la fonction pour créer le bouton Back to Top
+    createBackToTopButton();
+

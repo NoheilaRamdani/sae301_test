@@ -21,20 +21,30 @@
 
   .missionk-columns {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column; // Force la direction en colonne sur mobile
   }
 
   .column-left,
   .column-right {
     flex: 1;
+    width: 100%; // Forcer la largeur à 100%
+    max-width: 100%; // S'assurer que la largeur maximale est 100%
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+      flex: none; // Réinitialiser flex
+    }
   }
 
-  .column-left
+  .column-left,
   .text-overlay {
     position: relative;
 
@@ -45,6 +55,7 @@
 
     h3 {
       font-family: $font-text;
+      font-size: 1.65rem;
       font-weight: normal;
       margin-bottom: 45px;
     }

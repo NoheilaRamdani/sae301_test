@@ -9,8 +9,9 @@
       height: 100%;
       background: url('/public/images/white-texture.png') repeat;
       background-size: cover;
-      z-index: -3;
+      z-index: -2;
       pointer-events: none;
+
     }
   }
 
@@ -47,6 +48,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-title;
   text-align:center;
   color: $brown-color;
+  font-size: 2.5rem;
+
 }
 
 p, a, li {

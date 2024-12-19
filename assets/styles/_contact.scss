@@ -201,27 +201,29 @@ h3{
 
 
 .faq {
-  padding: 145px;
+  padding: 40px 145px;
   color: $brown-color;
   text-align: center;
+  padding-bottom:220px;
 
   h1 {
     color: $brown-color;
     text-align: center;
     font-size: 2.5em;
-    margin-bottom:50px;
+    margin-bottom: 50px;
   }
-  h3{
-    text-align:left;
+  h3 {
+    font-size: 1.5rem;
+    text-align: left;
     margin-bottom: 40px;
   }
   .faq-title {
-    width: 203px;
-    height: 211px;
+    width: 100px;
+    height: 100px;
     background-image: url('/public/images/loupe.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
-
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -229,8 +231,7 @@ h3{
   }
 
   .faq-title h1 {
-
-    font-size: 1.5em;  /* Taille du texte */
+    font-size: 1.5em;
     font-family: $font-title;
     margin: 0;
     position: relative;
@@ -252,7 +253,7 @@ h3{
       padding: 15px;
       width: 100%;
       text-align: left;
-      font-size: 1.1em;
+      font-size: 1.15em;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -260,6 +261,8 @@ h3{
       transition: background-color 0.3s ease;
       color: $brown-color;
       font-family: $font-title;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
       &:hover {
         background-color: darken($boite-color, 5%);
@@ -276,13 +279,13 @@ h3{
       display: none;
       padding: 15px;
       border: 1px solid #eee;
-      margin-top: 5px;
       font-size: 1em;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease-out;
-      p{
-        font-size:1rem;
+      margin-top: -1px; // Supprime l'espace entre la question et la réponse
+      p {
+        font-size: 1rem;
       }
     }
 
@@ -292,7 +295,7 @@ h3{
       padding: 15px;
       width: 100%;
       text-align: left;
-      font-size: 1.1em;
+      font-size: 1.15em;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -301,17 +304,23 @@ h3{
       color: $brown-color;
       font-family: $font-title;
       max-height: 500px;
+      border-radius: 0 0 4px 4px; // Border radius uniquement sur les coins inférieurs
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &.open .faq-question {
+      border-radius: 4px 4px 0 0; // Border radius uniquement sur les coins supérieurs quand ouvert
+      border-bottom: none; // Supprime la bordure du bas pour une meilleure transition
     }
 
     &.open .faq-question .arrow {
-      transform: rotate(90deg);  // Rotation de 90 degrés
+      transform: rotate(90deg);
     }
   }
 }
 .opening-hours {
   position: relative;
   padding-top: 130px;
-  padding-bottom: 50px;
 
   .scotch-image {
     max-width: 600px;

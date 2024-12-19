@@ -5,15 +5,21 @@
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Kuriosity Club, l'escape game incontournable à Troyes ! Plongez dans des énigmes captivantes et des aventures immersives adaptées à tous. Réservez dès maintenant votre expérience.">
     <link rel="icon" type="image/png" href="{{ asset('images/ico/favicon-96x96.png') }}" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/ico/favicon.svg') }}" />
     <link rel="shortcut icon" href="{{ asset('images/ico/favicon.ico') }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/ico/apple-touch-icon.png') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
 
 
 
 </head>
 <body>
+
 <header>
     <nav class="navbar">
         <div class="logo">
